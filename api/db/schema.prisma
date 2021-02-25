@@ -9,11 +9,13 @@ generator client {
 }
 
 model User {
-  id          String       @id @default(cuid())
-  email       String       @unique
-  username    String?      @unique
-  bytes       Byte[]
-  stylesheets Stylesheet[]
+  id                  String       @id @default(cuid())
+  email               String       @unique
+  username            String?      @unique
+  bytes               Byte[]
+  stylesheets         Stylesheet[]
+  favoriteBytes       Byte[]       @relation("FavoriteBytes")
+  favoriteStylesheets Stylesheet[] @relation("FavoriteStylesheets")
 }
 
 model Byte {
@@ -22,18 +24,20 @@ model Byte {
   userId      String
   stylesheets Stylesheet[]
   tags        Tag[]
+  favorites   User[]       @relation("FavoriteBytes")
   css         String
   xml         String?
   js          String?
 }
 
 model Stylesheet {
-  id     String  @id @default(cuid())
-  user   User    @relation(fields: [userId], references: [id])
-  userId String
-  bytes  Byte[]
-  locked Boolean @default(false)
-  css    String?
+  id        String  @id @default(cuid())
+  user      User    @relation(fields: [userId], references: [id])
+  userId    String
+  bytes     Byte[]
+  favorites User[]  @relation("FavoriteStylesheets")
+  locked    Boolean @default(false)
+  css       String?
 }
 
 model Tag {
