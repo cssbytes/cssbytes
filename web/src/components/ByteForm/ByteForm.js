@@ -1,18 +1,11 @@
-import {
-  Form,
-  FormError,
-  FieldError,
-  HiddenField,
-  Label,
-  Submit,
-} from '@redwoodjs/forms'
+import { Form, FormError, Submit } from '@redwoodjs/forms'
 import { useAuth } from '@redwoodjs/auth'
 import EditorFull from 'src/components/EditorFull'
 
 const ByteForm = (props) => {
   const { currentUser } = useAuth()
   const onSubmit = (data) => {
-    data.userId = currentUser.id
+    data.userId = currentUser.username
     props.onSave(data, props?.byte?.id)
   }
 

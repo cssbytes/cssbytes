@@ -1,6 +1,5 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
-import MainLayout from 'src/layouts/MainLayout'
 import ByteForm from 'src/components/ByteForm'
 
 import { QUERY } from 'src/components/BytesCell'
@@ -26,11 +25,7 @@ const NewByte = () => {
     createByte({ variables: { input } })
   }
 
-  return (
-    <MainLayout>
-      <ByteForm onSave={onSave} loading={loading} error={error} />
-    </MainLayout>
-  )
+  return <ByteForm onSave={onSave} loading={loading} error={error} />
 }
 
 export default NewByte

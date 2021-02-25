@@ -6,7 +6,7 @@ import { RiGithubFill } from 'react-icons/ri'
 const HeaderLink = (props) => {
   const { title, to, icon } = props
   return (
-    <li>
+    <li className="mx-2">
       <NavLink to={to}>
         {icon && <div>{icon}</div>}
         <span>{title}</span>
@@ -20,11 +20,18 @@ const MainLayout = ({ children }) => {
   return (
     <div className="flex flex-col min-h-screen">
       <header className="px-wrap py-2 flex flex-wrap items-center justify-between">
-        <Link to={routes.home()} className="font-bold text-xl">
-          CSS Bytes
-        </Link>
+        <div className="flex items-center">
+          <Link to={routes.home()} className="font-bold text-xl">
+            CSS Bytes
+          </Link>
+          <nav>
+            <ul className="flex items-center">
+              <HeaderLink to={routes.bytes()} title="Bytes" />
+            </ul>
+          </nav>
+        </div>
         <nav>
-          <ul>
+          <ul className="flex items-center">
             {!isAuthenticated ? (
               <>
                 <LoginButton

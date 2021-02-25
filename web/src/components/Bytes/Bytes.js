@@ -1,5 +1,6 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { Link, routes } from '@redwoodjs/router'
+import ByteDisplay from 'src/components/ByteDisplay'
 
 import { QUERY } from 'src/components/BytesCell'
 
@@ -57,57 +58,74 @@ const BytesList = ({ bytes }) => {
   }
 
   return (
-    <div className="rw-segment rw-table-wrapper-responsive">
-      <table className="rw-table">
-        <thead>
-          <tr>
-            <th>Id</th>
-            <th>User id</th>
-            <th>Css</th>
-            <th>Xml</th>
-            <th>Js</th>
-            <th>&nbsp;</th>
-          </tr>
-        </thead>
-        <tbody>
-          {bytes.map((byte) => (
-            <tr key={byte.id}>
-              <td>{truncate(byte.id)}</td>
-              <td>{truncate(byte.userId)}</td>
-              <td>{truncate(byte.css)}</td>
-              <td>{truncate(byte.xml)}</td>
-              <td>{truncate(byte.js)}</td>
-              <td>
-                <nav className="rw-table-actions">
-                  <Link
-                    to={routes.byte({ id: byte.id })}
-                    title={'Show byte ' + byte.id + ' detail'}
-                    className="rw-button rw-button-small"
-                  >
-                    Show
-                  </Link>
-                  <Link
-                    to={routes.editByte({ id: byte.id })}
-                    title={'Edit byte ' + byte.id}
-                    className="rw-button rw-button-small rw-button-blue"
-                  >
-                    Edit
-                  </Link>
-                  <a
-                    href="#"
-                    title={'Delete byte ' + byte.id}
-                    className="rw-button rw-button-small rw-button-red"
-                    onClick={() => onDeleteClick(byte.id)}
-                  >
-                    Delete
-                  </a>
-                </nav>
-              </td>
+    <>
+      <div className="rw-segment rw-table-wrapper-responsive">
+        <table className="rw-table">
+          <thead>
+            <tr>
+              <th>Id</th>
+              <th>User id</th>
+              <th>Css</th>
+              <th>Xml</th>
+              <th>Js</th>
+              <th>&nbsp;</th>
             </tr>
-          ))}
-        </tbody>
-      </table>
-    </div>
+          </thead>
+          <tbody>
+            {bytes.map((byte) => (
+              <tr key={byte.id}>
+                <td>{truncate(byte.id)}</td>
+                <td>{truncate(byte.userId)}</td>
+                <td>{truncate(byte.css)}</td>
+                <td>{truncate(byte.xml)}</td>
+                <td>{truncate(byte.js)}</td>
+                <td>
+                  <nav className="rw-table-actions">
+                    <Link
+                      to={routes.byte({ username: byte.userId, id: byte.id })}
+                      title={'Show byte ' + byte.id + ' detail'}
+                      className="rw-button rw-button-small"
+                    >
+                      Show
+                    </Link>
+                    <Link
+                      to={routes.editByte({
+                        username: byte.userId,
+                        id: byte.id,
+                      })}
+                      title={'Edit byte ' + byte.id}
+                      className="rw-button rw-button-small rw-button-blue"
+                    >
+                      Edit
+                    </Link>
+                    <a
+                      href="#"
+                      title={'Delete byte ' + byte.id}
+                      className="rw-button rw-button-small rw-button-red"
+                      onClick={() => onDeleteClick(byte.id)}
+                    >
+                      Delete
+                    </a>
+                  </nav>
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <div className="grid grid-cols-3">
+        {bytes.map((byte) => (
+          <ByteDisplay
+            key={byte.id}
+            html={byte.xml}
+            css={byte.css}
+            js={byte.js}
+            fixed={true}
+            small={true}
+          />
+        ))}
+      </div>
+    </>
   )
 }
 

@@ -20,7 +20,7 @@ model User {
 
 model Byte {
   id          String       @id @default(cuid())
-  user        User         @relation(fields: [userId], references: [id])
+  user        User         @relation(fields: [userId], references: [username])
   userId      String
   stylesheets Stylesheet[]
   tags        Tag[]
@@ -32,7 +32,7 @@ model Byte {
 
 model Stylesheet {
   id        String  @id @default(cuid())
-  user      User    @relation(fields: [userId], references: [id])
+  user      User    @relation(fields: [userId], references: [username])
   userId    String
   bytes     Byte[]
   favorites User[]  @relation("FavoriteStylesheets")

@@ -1,11 +1,11 @@
-import BytesLayout from 'src/layouts/BytesLayout'
+import MainLayout from 'src/layouts/MainLayout'
 import NewByte from 'src/components/NewByte'
 
 const NewBytePage = () => {
   return (
-    <BytesLayout>
+    <MainLayout>
       <NewByte />
-    </BytesLayout>
+    </MainLayout>
   )
 }
 

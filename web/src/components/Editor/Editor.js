@@ -25,15 +25,19 @@ const Editor = (props) => {
   }
   return (
     <div className={`${open ? 'flex-1' : ''}`}>
-      <div className="editor-title">
-        <button type="button" onClick={() => setOpen((prevOpen) => !prevOpen)}>
+      <div>
+        <button
+          type="button"
+          className="py-2 px-4 block w-full text-left"
+          onClick={() => setOpen((prevOpen) => !prevOpen)}
+        >
           {displayName}
         </button>
       </div>
       <ControlledEditor
         onBeforeChange={handleChange}
         value={value}
-        className="text-base rounded-md overflow-hidden border-solid border-2 border-transparent"
+        className="text-base overflow-hidden"
         options={{
           lineWrapping: true,
           lint: true,

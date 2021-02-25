@@ -1,11 +1,11 @@
-import BytesLayout from 'src/layouts/BytesLayout'
+import MainLayout from 'src/layouts/MainLayout'
 import EditByteCell from 'src/components/EditByteCell'
 
 const EditBytePage = ({ id }) => {
   return (
-    <BytesLayout>
+    <MainLayout>
       <EditByteCell id={id} />
-    </BytesLayout>
+    </MainLayout>
   )
 }
 
