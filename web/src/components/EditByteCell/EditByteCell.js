@@ -41,13 +41,6 @@ export const Success = ({ byte }) => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">Edit Byte {byte.id}</h2>
-      </header>
-      <div className="rw-segment-main">
-        <ByteForm byte={byte} onSave={onSave} error={error} loading={loading} />
-      </div>
-    </div>
+    <ByteForm byte={byte} onSave={onSave} error={error} loading={loading} />
   )
 }

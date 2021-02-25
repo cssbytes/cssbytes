@@ -73,7 +73,7 @@ const User = ({ user }) => {
       </div>
       <nav className="rw-button-group">
         <Link
-          to={routes.editUser({ id: user.id })}
+          to={routes.editUser({ username: user.username })}
           className="rw-button rw-button-blue"
         >
           Edit

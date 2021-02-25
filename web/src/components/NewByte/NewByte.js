@@ -1,5 +1,6 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
 import { navigate, routes } from '@redwoodjs/router'
+import MainLayout from 'src/layouts/MainLayout'
 import ByteForm from 'src/components/ByteForm'
 
 import { QUERY } from 'src/components/BytesCell'
@@ -26,14 +27,9 @@ const NewByte = () => {
   }
 
   return (
-    <div className="rw-segment">
-      <header className="rw-segment-header">
-        <h2 className="rw-heading rw-heading-secondary">New Byte</h2>
-      </header>
-      <div className="rw-segment-main">
-        <ByteForm onSave={onSave} loading={loading} error={error} />
-      </div>
-    </div>
+    <MainLayout>
+      <ByteForm onSave={onSave} loading={loading} error={error} />
+    </MainLayout>
   )
 }
 

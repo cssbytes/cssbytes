@@ -13,9 +13,6 @@ const UsersLayout = (props) => {
               Users
             </Link>
           </h1>
-          <Link to={routes.newUser()} className="rw-button rw-button-green">
-            <div className="rw-button-icon">+</div> New User
-          </Link>
         </header>
         <main className="rw-main">{props.children}</main>
       </div>
