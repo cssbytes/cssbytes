@@ -10,7 +10,7 @@ const ByteForm = (props) => {
   }
 
   return (
-    <Form onSubmit={onSubmit} error={props.error}>
+    <Form onSubmit={onSubmit} error={props.error} className="h-full flex-1">
       <FormError
         error={props.error}
         wrapperClassName="rw-form-error-wrapper"

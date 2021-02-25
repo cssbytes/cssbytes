@@ -1,6 +1,7 @@
 import { NavLink, Link, routes } from '@redwoodjs/router'
 import { useAuth } from '@redwoodjs/auth'
 import LoginButton from 'src/components/LoginButton'
+import TabDivider from 'src/components/TabDivider'
 import { RiGithubFill } from 'react-icons/ri'
 
 const HeaderLink = (props) => {
@@ -15,14 +16,18 @@ const HeaderLink = (props) => {
   )
 }
 
-const MainLayout = ({ children }) => {
+const MainLayout = ({ children, header }) => {
   const { isAuthenticated, currentUser, logOut } = useAuth()
   return (
-    <div className="flex flex-col min-h-screen">
-      <header className="px-wrap py-2 flex flex-wrap items-center justify-between">
+    <div className="flex flex-col min-h-screen relative">
+      <header
+        className={`${
+          header ? header + ' ' : ''
+        }px-wrap py-2 flex flex-wrap items-center justify-between text-sm font-bold relative z-10`}
+      >
         <div className="flex items-center">
-          <Link to={routes.home()} className="font-bold text-xl">
-            CSS Bytes
+          <Link to={routes.home()} className="font-bold font-heading text-2xl">
+            CSSBytes
           </Link>
           <nav>
             <ul className="flex items-center">
@@ -38,14 +43,14 @@ const MainLayout = ({ children }) => {
                   provider="GitHub"
                   icon={<RiGithubFill />}
                   size="sm"
-                  className="bg-black text-white"
+                  className="bg-github text-white"
                 />
               </>
             ) : (
               <>
                 <HeaderLink
                   to={routes.user({ username: currentUser.username })}
-                  title="Dashboard"
+                  title="Profile"
                 />
                 <button onClick={logOut}>Logout</button>
               </>
@@ -53,12 +58,15 @@ const MainLayout = ({ children }) => {
           </ul>
         </nav>
       </header>
-      <main className="flex-1 px-wrap">{children}</main>
-      <footer className="px-wrap py-2">
-        <p className="text-xs text-center">
-          &copy; {new Date().getFullYear()} Copyright{' '}
-          <Link to={routes.home()}>CSS Bytes</Link>. All rights reserved.
-        </p>
+      <div className="flex-1 px-wrap pb-36">{children}</div>
+      <footer className="px-wrap">
+        <TabDivider color="number" pattern={true} />
+        <div className="bg-number bg-pattern -mx-wrap-1/2 z-10 py-2 text-light">
+          <p className="text-xs text-center">
+            &copy; {new Date().getFullYear()} Copyright{' '}
+            <Link to={routes.home()}>CSS Bytes</Link>. All rights reserved.
+          </p>
+        </div>
       </footer>
     </div>
   )

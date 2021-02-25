@@ -1,5 +1,6 @@
 import { useMutation, useFlash } from '@redwoodjs/web'
-import { Link, routes, navigate } from '@redwoodjs/router'
+import { routes, navigate } from '@redwoodjs/router'
+import ByteDisplay from 'src/components/ByteDisplay'
 
 import { QUERY } from 'src/components/UsersCell'
 
@@ -48,44 +49,26 @@ const User = ({ user }) => {
 
   return (
     <>
-      <div className="rw-segment">
-        <header className="rw-segment-header">
-          <h2 className="rw-heading rw-heading-secondary">
-            User {user.id} Detail
-          </h2>
-        </header>
-        <table className="rw-table">
-          <tbody>
-            <tr>
-              <th>Id</th>
-              <td>{user.id}</td>
-            </tr>
-            <tr>
-              <th>Email</th>
-              <td>{user.email}</td>
-            </tr>
-            <tr>
-              <th>Username</th>
-              <td>{user.username}</td>
-            </tr>
-          </tbody>
-        </table>
-      </div>
-      <nav className="rw-button-group">
-        <Link
-          to={routes.editUser({ username: user.username })}
-          className="rw-button rw-button-blue"
-        >
-          Edit
-        </Link>
-        <a
-          href="#"
-          className="rw-button rw-button-red"
-          onClick={() => onDeleteClick(user.id)}
-        >
-          Delete
-        </a>
-      </nav>
+      {user.bytes && user.bytes.length > 0 && (
+        <section>
+          <h2>Bytes</h2>
+          {user.bytes.map((byte) => (
+            <ByteDisplay
+              key={byte.id}
+              html={byte.xml}
+              css={byte.css}
+              js={byte.js}
+              fixed={true}
+              small={true}
+            />
+          ))}
+        </section>
+      )}
+      {user.stylesheets && user.stylesheets.length > 0 && (
+        <section>
+          <h2>Stylesheets</h2>
+        </section>
+      )}
     </>
   )
 }

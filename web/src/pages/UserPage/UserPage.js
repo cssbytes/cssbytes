@@ -1,11 +1,11 @@
-import UsersLayout from 'src/layouts/UsersLayout'
+import MainLayout from 'src/layouts/MainLayout'
 import UserCell from 'src/components/UserCell'
 
 const UserPage = ({ username }) => {
   return (
-    <UsersLayout>
+    <MainLayout header="text-dark">
       <UserCell username={username} />
-    </UsersLayout>
+    </MainLayout>
   )
 }
 

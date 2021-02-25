@@ -1,10 +1,25 @@
+import { useState } from 'react'
 import { Link, routes } from '@redwoodjs/router'
 import MainLayout from 'src/layouts/MainLayout'
+import Editor from 'src/components/Editor'
+import HeaderSection from 'src/components/HeaderSection'
 
 const HomePage = () => {
+  const [css, setCss] = useState('')
   return (
-    <MainLayout>
-      <h1>HomePage</h1>
+    <MainLayout header="text-light">
+      <HeaderSection
+        title="Build Your Own Byte-Sized CSS"
+        subText="Create and share Bytes to build stylesheets for your websites."
+        className="bg-number text-light"
+      >
+        <Editor
+          language="css"
+          displayName="CSS"
+          value={css}
+          onChange={setCss}
+        />
+      </HeaderSection>
       <p>
         Find me in <code>./web/src/pages/HomePage/HomePage.js</code>
       </p>
