@@ -76,22 +76,22 @@ const UsersList = ({ users }) => {
               <td>
                 <nav className="rw-table-actions">
                   <Link
-                    to={routes.user({ id: user.id })}
-                    title={'Show user ' + user.id + ' detail'}
+                    to={routes.user({ username: user.username })}
+                    title={'Show user ' + user.username + ' detail'}
                     className="rw-button rw-button-small"
                   >
                     Show
                   </Link>
                   <Link
-                    to={routes.editUser({ id: user.id })}
-                    title={'Edit user ' + user.id}
+                    to={routes.editUser({ username: user.username })}
+                    title={'Edit user ' + user.username}
                     className="rw-button rw-button-small rw-button-blue"
                   >
                     Edit
                   </Link>
                   <a
                     href="#"
-                    title={'Delete user ' + user.id}
+                    title={'Delete user ' + user.username}
                     className="rw-button rw-button-small rw-button-red"
                     onClick={() => onDeleteClick(user.id)}
                   >

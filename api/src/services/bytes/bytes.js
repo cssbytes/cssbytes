@@ -36,4 +36,6 @@ export const Byte = {
     db.byte.findUnique({ where: { id: root.id } }).stylesheets(),
   tags: (_obj, { root }) =>
     db.byte.findUnique({ where: { id: root.id } }).tags(),
+  favorites: (_obj, { root }) =>
+    db.byte.findUnique({ where: { id: root.id } }).favorites(),
 }

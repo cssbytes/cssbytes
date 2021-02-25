@@ -34,4 +34,6 @@ export const Stylesheet = {
     db.stylesheet.findUnique({ where: { id: root.id } }).user(),
   bytes: (_obj, { root }) =>
     db.stylesheet.findUnique({ where: { id: root.id } }).bytes(),
+  favorites: (_obj, { root }) =>
+    db.stylesheet.findUnique({ where: { id: root.id } }).favorites(),
 }

@@ -4,6 +4,7 @@ export const schema = gql`
     user: User!
     userId: String!
     bytes: [Byte]!
+    favorites: [User]!
     locked: Boolean!
     css: String
   }

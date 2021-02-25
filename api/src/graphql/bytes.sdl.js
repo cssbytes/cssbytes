@@ -5,6 +5,7 @@ export const schema = gql`
     userId: String!
     stylesheets: [Stylesheet]!
     tags: [Tag]!
+    favorites: [User]!
     css: String!
     xml: String
     js: String
