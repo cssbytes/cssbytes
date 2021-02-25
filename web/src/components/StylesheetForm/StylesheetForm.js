@@ -28,7 +28,7 @@ const StylesheetForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          User id
+          User ID
         </Label>
         <TextField
           name="userId"
@@ -54,21 +54,25 @@ const StylesheetForm = (props) => {
         />
         <FieldError name="locked" className="rw-field-error" />
 
-        <Label
-          name="css"
-          className="rw-label"
-          errorClassName="rw-label rw-label-error"
-        >
-          Css
-        </Label>
-        <TextField
-          name="css"
-          defaultValue={props.stylesheet?.css}
-          className="rw-input"
-          errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
-        />
-        <FieldError name="css" className="rw-field-error" />
+        {props.stylesheet?.locked && (
+          <>
+            <Label
+              name="css"
+              className="rw-label"
+              errorClassName="rw-label rw-label-error"
+            >
+              CSS
+            </Label>
+            <TextField
+              name="css"
+              defaultValue={props.stylesheet?.css}
+              className="rw-input"
+              errorClassName="rw-input rw-input-error"
+              validation={{ required: false }}
+            />
+            <FieldError name="css" className="rw-field-error" />
+          </>
+        )}
 
         <div className="rw-button-group">
           <Submit disabled={props.loading} className="rw-button rw-button-blue">

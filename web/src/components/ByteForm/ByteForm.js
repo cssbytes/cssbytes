@@ -27,7 +27,7 @@ const ByteForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          User id
+          User ID
         </Label>
         <TextField
           name="userId"
@@ -43,7 +43,7 @@ const ByteForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Css
+          CSS
         </Label>
         <TextField
           name="css"
@@ -59,14 +59,14 @@ const ByteForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Xml
+          XML
         </Label>
         <TextField
           name="xml"
           defaultValue={props.byte?.xml}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ required: false }}
         />
         <FieldError name="xml" className="rw-field-error" />
 
@@ -75,14 +75,14 @@ const ByteForm = (props) => {
           className="rw-label"
           errorClassName="rw-label rw-label-error"
         >
-          Js
+          JS
         </Label>
         <TextField
           name="js"
           defaultValue={props.byte?.js}
           className="rw-input"
           errorClassName="rw-input rw-input-error"
-          validation={{ required: true }}
+          validation={{ required: false }}
         />
         <FieldError name="js" className="rw-field-error" />
 
