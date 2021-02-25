@@ -4,9 +4,9 @@ export const users = () => {
   return db.user.findMany()
 }
 
-export const user = ({ id }) => {
+export const user = ({ id, username }) => {
   return db.user.findUnique({
-    where: { id },
+    where: { id, username },
   })
 }
 

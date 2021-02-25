@@ -1,10 +1,10 @@
 import UsersLayout from 'src/layouts/UsersLayout'
 import UserCell from 'src/components/UserCell'
 
-const UserPage = ({ id }) => {
+const UserPage = ({ username }) => {
   return (
     <UsersLayout>
-      <UserCell id={id} />
+      <UserCell username={username} />
     </UsersLayout>
   )
 }

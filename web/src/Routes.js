@@ -15,10 +15,10 @@ const Routes = () => {
       <Route path="/bytes/{id}/edit" page={EditBytePage} name="editByte" />
       <Route path="/bytes/{id}" page={BytePage} name="byte" />
       <Route path="/bytes" page={BytesPage} name="bytes" />
-      <Route path="/users/new" page={NewUserPage} name="newUser" />
-      <Route path="/users/{id}/edit" page={EditUserPage} name="editUser" />
-      <Route path="/users/{id}" page={UserPage} name="user" />
-      <Route path="/users" page={UsersPage} name="users" />
+      <Route path="/u/new" page={NewUserPage} name="newUser" />
+      <Route path="/u/{username}/edit" page={EditUserPage} name="editUser" />
+      <Route path="/u/{username}" page={UserPage} name="user" />
+      <Route path="/u" page={UsersPage} name="users" />
       <Route path="/" page={HomePage} name="home" />
       <Route notfound page={NotFoundPage} />
     </Router>

@@ -1,8 +1,8 @@
 import User from 'src/components/User'
 
 export const QUERY = gql`
-  query FIND_USER_BY_ID($id: String!) {
-    user: user(id: $id) {
+  query FIND_USER_BY_ID($username: String) {
+    user: user(username: $username) {
       id
       email
       username
