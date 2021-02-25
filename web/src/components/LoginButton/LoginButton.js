@@ -2,8 +2,8 @@ import { useAuth } from '@redwoodjs/auth'
 import { navigate, routes } from '@redwoodjs/router'
 
 const LoginButton = (props) => {
-  const { className, provider, icon } = props
-  const { logIn } = useAuth()
+  const { className, provider, icon, size } = props
+  const { logIn, currentUser } = useAuth()
 
   const lowercaseProvider = provider.toLowerCase()
 
@@ -12,7 +12,13 @@ const LoginButton = (props) => {
       email: null,
       password: null,
       provider: lowercaseProvider,
-    }).then(() => navigate(routes.home()))
+    }).then(() => {
+      if (!currentUser) {
+        navigate(routes.home())
+      } else {
+        navigate(routes.user({ username: currentUser.username }))
+      }
+    })
   }
 
   return (
@@ -22,8 +28,14 @@ const LoginButton = (props) => {
         className ? className + ' ' : ''
       }flex items-center py-2 px-4 rounded-md`}
     >
-      {icon && <div className="text-3xl mr-2">{icon}</div>}
-      <span>Sign In with {provider}</span>
+      {icon && (
+        <div className={`${size === 'sm' ? 'text-xl' : 'text-3xl'} mr-2`}>
+          {icon}
+        </div>
+      )}
+      <span className={`${size === 'sm' ? 'text-sm' : 'text-base'}`}>
+        Sign In with {provider}
+      </span>
     </button>
   )
 }
