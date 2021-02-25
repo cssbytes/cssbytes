@@ -1,17 +1,6 @@
 export const standard = defineScenario({
   byte: {
-    one: {
-      css: 'String',
-      xml: 'String',
-      js: 'String',
-      user: { create: { email: 'String2211516' } },
-    },
-
-    two: {
-      css: 'String',
-      xml: 'String',
-      js: 'String',
-      user: { create: { email: 'String8920238' } },
-    },
+    one: { css: 'String', user: { create: { email: 'String9923669' } } },
+    two: { css: 'String', user: { create: { email: 'String3204967' } } },
   },
 })

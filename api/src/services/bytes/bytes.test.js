@@ -15,18 +15,11 @@ describe('bytes', () => {
 
   scenario('creates a byte', async (scenario) => {
     const result = await createByte({
-      input: {
-        userId: 'scenario.byte.two.userId',
-        css: 'String',
-        xml: 'String',
-        js: 'String',
-      },
+      input: { userId: 'scenario.byte.two.userId', css: 'String' },
     })
 
     expect(result.userId).toEqual('scenario.byte.two.userId')
     expect(result.css).toEqual('String')
-    expect(result.xml).toEqual('String')
-    expect(result.js).toEqual('String')
   })
 
   scenario('updates a byte', async (scenario) => {

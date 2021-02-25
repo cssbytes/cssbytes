@@ -3,11 +3,11 @@ export const schema = gql`
     id: String!
     user: User!
     userId: String!
-    Stylesheet: [Stylesheet]!
-    css: String!
-    xml: String!
-    js: String!
+    stylesheets: [Stylesheet]!
     tags: [Tag]!
+    css: String!
+    xml: String
+    js: String
   }
 
   type Query {
@@ -18,8 +18,8 @@ export const schema = gql`
   input CreateByteInput {
     userId: String!
     css: String!
-    xml: String!
-    js: String!
+    xml: String
+    js: String
   }
 
   input UpdateByteInput {

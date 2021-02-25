@@ -32,8 +32,8 @@ export const deleteByte = ({ id }) => {
 export const Byte = {
   user: (_obj, { root }) =>
     db.byte.findUnique({ where: { id: root.id } }).user(),
-  Stylesheet: (_obj, { root }) =>
-    db.byte.findUnique({ where: { id: root.id } }).Stylesheet(),
+  stylesheets: (_obj, { root }) =>
+    db.byte.findUnique({ where: { id: root.id } }).stylesheets(),
   tags: (_obj, { root }) =>
     db.byte.findUnique({ where: { id: root.id } }).tags(),
 }
